@@ -11,23 +11,27 @@ currentChild = selectedObjects[1]
 pointConstrainName = str(currentChild) + "_pointConstrain1"
 cmds.pointConstraint( currentParent, currentChild, w = weight, name = pointConstrainName)
 
+'''
+#Set Translation keyframes
+cmds.setKeyframe(currentChild, at='translateX')
+cmds.setKeyframe(currentChild, at='translateY')
+cmds.setKeyframe(currentChild, at='translateZ')
+'''
+
 cmds.delete(pointConstrainName)
 
 #COPY ROTATION DATA
 orientConstrainName = str(currentChild) + "_orientConstrain1"
 cmds.orientConstraint( currentParent, currentChild, w = weight, name = orientConstrainName)
 
-cmds.delete(orientConstrainName)
-
-
 '''
-# Set keyframes
-
-cmds.setKeyframe(currentChild, at='translateX')
-cmds.setKeyframe(currentChild, at='translateY')
-cmds.setKeyframe(currentChild, at='translateZ')
-
+#Set Rotation keyframes
 cmds.setKeyframe(currentChild, at='rotateX')
 cmds.setKeyframe(currentChild, at='rotateY')
 cmds.setKeyframe(currentChild, at='rotateZ')
 '''
+
+cmds.delete(orientConstrainName)
+
+
+
